@@ -1,0 +1,77 @@
+@import '../../assets/styles/user/helpers/variable';
+
+$menu_line_width_hover:35%;
+$menu_line_height_hover:2px;
+$color_hover_line: $color_white;
+$distance_menu_navbar:25px;
+
+
+a{
+    color:$color_white;
+    &:hover{
+        color: $color_white;
+    }
+}
+
+#collapsibleNavbar{
+    width:100%;
+}
+
+.myMenu{
+    li{
+        display: inline-block;
+    }
+}
+
+// menu
+.link{
+    span{
+        position: relative;
+        &::before{
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            height: 0;
+            width: 0;
+            transition: all 0.2s ease-in-out;  
+        }
+    }
+    &:hover{
+        span{
+            cursor: pointer;
+        }
+        span::before{
+            width: $menu_line_width_hover;
+            height: $menu_line_height_hover;
+            background: $color_hover_line
+        }
+    }
+}
+
+.menuNavbar > ul{
+    li:not(nth-last-of-type){
+        margin-right: $distance_menu_navbar;
+    }
+    li{
+        font-weight: 500;
+    }
+}
+
+
+
+// Logo
+.logo{
+    background: url('../../assets/images/user/logo_icon.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 60px;
+    height: 60px;
+}
+
+
+@media (max-width:768px){
+    .menuNavbar{
+        display: none !important;
+    }
+}
